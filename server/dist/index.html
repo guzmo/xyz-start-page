@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>xyz-nodejs</title>
-    </head>
-    <body>
-        <h1>Welcome to your node.js app on xyz</h1>
-        <p>This is going to be awesome!</p>
-    </body>
+<html lang="en" ng-app="xyz">
+<head>
+    <title>Competence app</title>
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<div class="container" ng-controller="XYZController">
+
+    <div class="page-header">
+        <h2>Welcome to XYZ</h2>
+    </div>
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+       <div class="panel panel-default" ng-repeat="module in getModules()" data-toggle="collapse" data-target="#url-{{ $index }}" aria-controls="url-{{ $index }}">
+        <div class="panel-heading" role="tab" id="heading-{{ $index }}">
+          <h4 class="panel-title">
+            <a  href="{{ module.endpoint }}" aria-expanded="false" >
+              {{ module.endpoint }}
+          </a>
+        </h4>
+       </div>
+     <div id="url-{{ $index }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{ $index  }}" >
+      <div class="panel-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Github</th>
+                <th>Latest commit</th>
+                <th>Latest commiter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ module.fullName }}</td>
+                <td>{{ module.createdAt }}</td>
+                <td>{{ module.pusher }}</td>
+              </tr>
+            </tbody>
+          </table>
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+
+<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+<script type="text/javascript" src="libs/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+</body>
 </html>
