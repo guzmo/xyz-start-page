@@ -3,7 +3,7 @@ FROM dockerfile/nodejs
 
 # Install production dependencies.
 ADD package.json /app/package.json
-RUN cd /app && npm install --production && npm install -g bower grunt-cli && bower install
+RUN cd /app && npm install --production && npm install -g bower
 
 # Add the rest of the project to a folder app in the container.
 ADD . /app
@@ -12,7 +12,7 @@ ADD . /app
 WORKDIR /app
 
 # Expose the correct port for your app. This will be picked up by "Katalog" who
-# will make sure Nginx redirects to this port. 
+# will make sure Nginx redirects to this port.
 EXPOSE 9000
 
-CMD node /app/server/server.js
+CMD  bower install && node /app/server/server.js
