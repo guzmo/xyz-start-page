@@ -1,12 +1,9 @@
 # Use the standard nodejs image as a base
 FROM dockerfile/nodejs
 
-# Install production dependencies.
-ADD package.json /app/package.json
-RUN cd /app && npm install --production
-
-# Add the rest of the project to a folder app in the container.
 ADD . /app
+# Install production dependencies.
+RUN cd /app && npm install --production
 
 # Set working directory for the app:
 WORKDIR /app
