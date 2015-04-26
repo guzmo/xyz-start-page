@@ -1,8 +1,12 @@
 {
   "name": "xyz-nodejs",
   "dependencies": {
+    "bower": "^1.4.1",
     "express": "^4.4.5",
     "request": "^2.55.0"
   },
-  "repository": {}
+  "repository": {},
+  "scripts": {
+     "postinstall": "bower install"
+  }
 }
