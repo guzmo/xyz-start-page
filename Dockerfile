@@ -3,7 +3,7 @@ FROM dockerfile/nodejs
 
 # Install production dependencies.
 ADD package.json /app/package.json
-RUN cd /app && npm install --production && npm install -g bower
+RUN cd /app && npm install --production && npm install -g bower && bower install --allow-root
 
 # Add the rest of the project to a folder app in the container.
 ADD . /app
@@ -15,4 +15,4 @@ WORKDIR /app
 # will make sure Nginx redirects to this port.
 EXPOSE 9000
 
-CMD  bower install && node /app/server/server.js
+CMD node /app/server/server.js
