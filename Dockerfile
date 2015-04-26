@@ -2,8 +2,9 @@
 FROM dockerfile/nodejs
 
 ADD . /app
+
 # Install production dependencies.
-RUN cd /app && npm install --production
+RUN cd /app && npm install --production && bower install --allow-root
 
 # Set working directory for the app:
 WORKDIR /app
