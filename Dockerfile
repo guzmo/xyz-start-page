@@ -3,7 +3,7 @@ FROM dockerfile/nodejs
 
 # Install production dependencies.
 ADD package.json /app/package.json
-RUN cd /app && npm install --production && npm install -g bower && bower install --allow-root
+RUN cd /app && npm install --production
 
 # Add the rest of the project to a folder app in the container.
 ADD . /app
