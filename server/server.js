@@ -3,7 +3,7 @@ var express = require('express');
 var request = require('request');
 var app = express();
 
-var rest = 'http://localhost:3232/';
+var rest = 'http://xyz.softhouse.se/api/';
 
 // You probably want to change 'dist/' to '../dist/' for production
 app.use('/', express.static(path.join(__dirname, 'dist/')));
